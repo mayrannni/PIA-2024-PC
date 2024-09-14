@@ -41,9 +41,9 @@ function Request-ApiHashBased {
     #>
 
     param (
-        [Parameter(Mandatory)][string]$FolderPath,
-        [Parameter(Mandatory)][string]$ReportFile,
-        [Parameter(Mandatory)][int]$prints
+        [string]$FolderPath,
+        [string]$ReportFile,
+        [int]$prints
     )
 
     $FolderPath = Read-Host "Enter the folder path you want to scan"
