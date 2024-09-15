@@ -9,14 +9,14 @@
 ### 1. Intro
 Cybersecurity programming can use a variety of programming languages. In this learning project we will delve into the use of PowerShell, BASH and Python, as required.
 
-Technologies implemented in this PC project  
+Technologies implemented in this PC project ✌️  
 <img src = "https://img.shields.io/badge/powershell-5391FE?style=for-the-badge&logo=powershell&logoColor=white"/>
 <img src = "https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=GNU%20Bash&logoColor=white"/>
 <img src = "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 
 
 ### 2. Headings
-(09/15/24) We have used Powershell to perform different Cybersecurity tasks, so far. Including:
+(09/15/24) We have used PowerShell to perform different Cybersecurity tasks, so far. Including:
   - **Hash-based API query**
   - **Hidden files review**
   - **Computer resources usage display**
