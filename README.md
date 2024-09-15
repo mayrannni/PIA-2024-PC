@@ -33,4 +33,3 @@ Apply the learning about PowerShell, BASH and Python to create scripts that perf
 
 ### 5. Notes
 We hope your visit to our repository will be pleasant and helpful! o(*￣▽￣*)o
--------------------------------------------------------------------------------
