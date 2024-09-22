@@ -8,8 +8,8 @@ create_honeypot() {
     #need this number to avoid saturating the processes
     read -p ">> how many times do you want to listen ssh connections? " connections
     i=0
-    sleep 2s
     echo "building up honeypot at 22 port..."
+    sleep 3s
     #search os information for banner to attract access attempts
     os_name=$(lsb_release -d | awk -F'\t' '{print $2}') #e.g. Kali GNU/Linux Rolling
     kernel_ver=$(uname -r) #e.g. 6.6.9-amd64
