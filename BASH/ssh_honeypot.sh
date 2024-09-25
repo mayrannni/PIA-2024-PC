@@ -19,14 +19,20 @@ create_honeypot() {
 
     while [ $i -lt $connections ]; do
         #fooling with my banner, try to listen 22 port using netcat
-        echo -e "$banner" | nc -lvp $port
+        echo -e "$banner" |timeout 8s nc -lvp $port 2>/dev/null 
         #filter netstat results that we are interested and extract the ip
-        found_ip=$(netstat -tnp 2>/dev/null | grep ":$port " | grep "ESTABLISHED" | awk '{print $5}' | cut -d: -f1)
-        if [ -n "$found_ip" ]; then
-            #if ip was detected then save the following msg in a log file (report)
-            echo "ssh access attempt from ip: $found_ip === $(date)" >> $report
+        info_connection=$(netstat -tnp 2>/dev/null | grep ":$port " | grep "ESTAB")
+        ip=$(echo $info_connection | awk '{print $5}' | cut -d: -f1)
+        r_port=$(echo $info_connection | awk '{print $5}' | cut -d: -f2)
+        sleep 3s
+        if [ -n "$info_connection" ]; then
+            echo "listening and saving results in $report..."
+            sleep 1.5s
+            #if $info_connection length > 0 then save the following msg in a log file (report)
+            echo "ssh access attempt from ip: $ip and remote port: $r_port === $(date)" >> $report
+        else
+            echo "ssh access attempt from unknown ip (no more details) === $(date)" >> $report
         fi
-        echo "ITERATION $i"
         ((i++))
     done
 }
@@ -41,8 +47,8 @@ show_report() {
 }
 
 exit_script() {
-    echo "stopping honeypot..."
-    sleep 3s
+    echo "stopping and cleaning ssh honeypot..."
+    sleep 1.5s
     #kill process strictly called "nc -lvp" (our honeypot basically)
     pkill -f "nc -lvp"
     echo "ssh honeypot has stopped, goodbye!"
@@ -53,7 +59,7 @@ while true; do
     echo "=== welcome to ssh honeypot ==="
     echo "1) start"
     echo "2) view results"
-    echo "3) exit"
+    echo "3) clean honeypot"
     echo "=== === === === === === === ==="
     read -p ">> your choice: " choice
 
