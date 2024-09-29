@@ -25,10 +25,10 @@ Technologies implemented in this PC project ✌️
   - Scripts (.ps1) for individual use are also attached. 
 
 (09/29/24) We have used GNU Bash to perform different Cybersecurity tasks, so far. Including:
-  - **SSH Honeypot**
+  - **SSH Honeypot**  
     This script uses netcat and netstat to listen for connections and filter them.
-  - **Scanning ports and vulnerabilities** 
-    This script uses nmap for port and vulnerability scanning.
+  - **Scanning ports and vulnerabilities**  
+    This script uses nmap for port and vulnerability scanning. 
   - Note that each script contains a menu to guide the handling of the script. 
 
 ### 3. Project targets
@@ -36,7 +36,7 @@ Apply the learning about PowerShell, BASH and Python to create scripts that perf
 
 ### 4. Credits
 [mayrannni](https://github.com/mayrannni) - Creator  
-[Fermaroom](https://github.com/Fermaroom) - Creator
+[Fermaroom](https://github.com/Fermaroom) - Creator  
 [Edgar-A23](https://github.com/Edgar-A23) - Creator
 
 ### 5. Notes
