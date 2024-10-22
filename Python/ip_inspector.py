@@ -12,7 +12,7 @@ import json
 import logging
 import re
 import requests
-from menu import main_menu()
+from menu import main_menu
 
 
 def validate_ip(ip):
