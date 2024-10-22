@@ -38,7 +38,15 @@ def vulnerability_scanning(param):
         logging.error(f'An unexpected error has occurred: {e}')
 
 
-mode = '''How to use: python "IPVulnerabilities.py" -ip -ports '''
+mode = """Run the following command:
+python "IPVulnerabilities.py" -ip -ports
+
+Ideal scenario
+- Install nmap from https://nmap.org/download
+
+Notes
+- This script requires nmap to be installed on your computer (https://nmap.org/download)
+- The scan usually takes a while to complete"""
 parser = argparse.ArgumentParser(
     description='The script scans an IP for its vulnerabilities using nmap.',
     epilog=mode,
