@@ -1,12 +1,49 @@
 """Analyzes vulnerabilities that may exist in the target."""
 
 
+import argparse
 import datetime
 import logging
 import os
+import re
 import subprocess
-import argparse
 import webbrowser
+
+
+def validate_ip(ip):
+    """Validate a single IP."""
+    pattern = re.compile(
+        r"^"
+        r"(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}"
+        r"(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
+        r"$"
+        )
+    if pattern.match(ip):
+        return ip
+    else:
+        raise argparse.ArgumentTypeError(
+            'The IP address given is invalid.'
+            )
+    return ip
+
+
+def validate_port(ports):
+    if re.fullmatch(r'\d{1,5}', ports):
+        port = int(ports)
+        if 1 <= port <= 65535:
+            return ports
+        else:
+            raise argparse.ArgumentTypeError(
+                'The port is not within range'
+                )
+    if re.fullmatch(r'\d{1,5}-\d{1,5}', ports):
+            beginning, end = map(int, ports.split('-'))
+            if 1 <= beginning <=65535 and 1 <= end <= 65535 and beginning < end:
+                return ports
+            else:
+                raise argparse.ArgumentTypeError(
+                    'The range ports is not within range'
+                    )
 
 
 def vulnerability_scanning(param):
@@ -51,8 +88,9 @@ parser = argparse.ArgumentParser(
     description='The script scans an IP for its vulnerabilities using nmap.',
     epilog=mode,
     formatter_class=argparse.RawDescriptionHelpFormatter)
-parser.add_argument('-ip', dest='ip', help='Ip to be analyzed', required=True)
-parser.add_argument('-ports', dest='ports',
+parser.add_argument('-ip', dest='ip', help='Ip to be analyzed',
+                    type=validate_ip, required=True)
+parser.add_argument('-ports', dest='ports', type=validate_port,
                     help='Port to be analyzed', required=True)
 param = parser.parse_args()
 
