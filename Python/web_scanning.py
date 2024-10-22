@@ -220,4 +220,4 @@ else:
         """ZAP could never be started.
     This script will not work if ZAP is not running on your computer."""
     )
-    main_menu()
+main_menu()
