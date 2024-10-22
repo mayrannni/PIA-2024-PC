@@ -126,3 +126,4 @@ if nmap_exist == 'True':
     logging.info('Nmap is installed')
     vulnerability_scanning(param)
 
+main_menu()
