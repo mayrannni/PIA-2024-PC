@@ -69,11 +69,11 @@ else:
             file.write("Scan complete, Have a nice day :D")
 
         except shodan.APIError as error:
-            print(">> Ocurrió un error con la API: \n%s" % error)
+            print(">> An error occurred with the API: \n%s" % error)
             logging.error(f"Error: {error}")
 
         except Exception as error:
-            print(">> Ocurrió un error: \n%s" % error)
+            print(">> An error occurred: \n%s" % error)
             logging.error(f"Error: {error}")
 
         else:
