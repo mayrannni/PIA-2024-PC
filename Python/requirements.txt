@@ -1,0 +1,5 @@
+beautifulsoup4==4.12.3
+psutil==6.0.0
+PyAutoGUI==0.9.54
+Requests==2.32.3
+shodan==1.31.0
