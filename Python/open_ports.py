@@ -56,7 +56,7 @@ api_key = "qYsYnBh8c6vx820iWeJc9VwzFMcIUU5l"
 try:
     api = shodan.Shodan(api_key)
 except shodan.APIError as error:
-    print(">> Ocurrió un error con la API: \n%s" % error)
+    print(">> An error occurred with the API: \n%s" % error)
     logging.error(f"Error: {error}")
 else:
     # Save the response in a txt file to make reading easier
