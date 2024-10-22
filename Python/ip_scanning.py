@@ -28,6 +28,7 @@ def validate_ip(ip):
 
 
 def validate_port(ports):
+    """Validate port(s)"""
     if re.fullmatch(r'\d{1,5}', ports):
         port = int(ports)
         if 1 <= port <= 65535:
@@ -42,7 +43,7 @@ def validate_port(ports):
                 return ports
             else:
                 raise argparse.ArgumentTypeError(
-                    'The range ports is not within range'
+                    'Ports are not within range'
                     )
 
 
