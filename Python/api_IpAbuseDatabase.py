@@ -160,13 +160,13 @@ def menu():
 
 if __name__ == "__main__":
     mode = (
-        "How to use: python Nombre-archivo.py -ip 126.0.0.1 -day 5"
+        "How to use: python file_name.py -ip 126.0.0.1 -day 5"
         "-trust 90 -ip_range 120.0.0.1/24"
         )
     parser = argparse.ArgumentParser(
         description=(
-            'El script informa de direcciones IP abusivas,'
-            've el historial de actividad maliciosa asociada a una IP.'
+            'The script reports abusive IP addresses,'
+            'and see the history of malicious activity associated with an IP.'
             ),
         epilog=mode,
         formatter_class=argparse.RawDescriptionHelpFormatter
