@@ -87,7 +87,7 @@ if open_ports:
                 state = line.split()[1]
             else:
                 logging.error("Not enough information. Exit...")
-                # main_menu()
+                main_menu()
     try:
         for port in ports:
             name = f"Report_{ip_address}_Port{port}.txt"
