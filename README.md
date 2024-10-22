@@ -31,6 +31,18 @@ Technologies implemented in this PC project ✌️
     This script uses nmap for port and vulnerability scanning. 
   - Note that each script contains a menu to guide the handling of the script. 
 
+(10/21/24) We have used Python to perform different Cybersecurity tasks, so far. Including:
+  - **Scan vulnerabilities for websites**  
+    *web_scanning.py* uses [ZAP](https://www.zaproxy.org/download/) and [ZAP API](https://pypi.org/project/zaproxy/) to scanning vulnerabilities from websites. 
+  - **Check open ports - SHODAN**  
+    *open_ports.py* uses Shodan API to scan an IP and returns the open ports of that IP. 
+  - **Use IP Abuse Database**  
+    *ip_inspector.py* uses IP Abuse Database API and checks how reliable and trusted is the given IP.
+  - **Scanning IP addreses - NMAP**  
+    *ip_scanning.py* uses nmap to scan the most common vulnerabilities for a given IP address.
+  - **Reporting IP addresses**  
+    *report_ip.py* uses IP Abuse Database API to report the compromised IP that nmap (based on *ip_scanning.py*) returns with vulnerabilities.
+
 ### 3. Project targets
 Apply the learning about PowerShell, BASH and Python to create scripts that perform cybersecurity tasks.
 
