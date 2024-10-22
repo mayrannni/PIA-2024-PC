@@ -8,7 +8,7 @@ import os
 import re
 import subprocess
 import webbrowser
-
+from menu import main_menu
 
 def validate_ip(ip):
     """Validate a single IP."""
@@ -125,3 +125,4 @@ except (subprocess.CalledProcessError, FileNotFoundError):
 if nmap_exist == 'True':
     logging.info('Nmap is installed')
     vulnerability_scanning(param)
+
