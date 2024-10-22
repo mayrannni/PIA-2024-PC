@@ -1,10 +1,4 @@
-"""Take an ip and scan their open ports using Shodan API.
-
-The script will generate two txt files,
-one file contains the open ports for the given ip and
-the second file will saved the whole response from the API
-if the user wants to chek it out
-"""
+"""Take an ip and scan their open ports using Shodan API."""
 
 import logging
 import argparse
@@ -17,14 +11,6 @@ logging.basicConfig(
     format="%(asctime)s %(message)s",
     datefmt="%m/%d/%Y %H:%M:%S",
     level=logging.ERROR,
-)
-
-# Generate a config for the file info
-logging.basicConfig(
-    filename="API_Actions.log",
-    format="%(asctime)s %(message)s",
-    datefmt="%m/%d/%Y %I:%M:%S %p",
-    level=logging.INFO,
 )
 
 # Create an argument for the sripts run
@@ -47,19 +33,16 @@ ips.add_argument(
 )
 
 arguments = ips.parse_args()
-ip = ips.ip
+ip = arguments.ip
 
 # The shodan api key to authenticate our search in the api
 api_key = "qYsYnBh8c6vx820iWeJc9VwzFMcIUU5l"
-logging.info("Key registrada : %s" % api_key)
 try:
     api = shodan.Shodan(api_key)
 except shodan.APIError as error:
     print(">> Ocurrió un error con la API: \n%s" % error)
     logging.error(f"Error: {error}")
 else:
-    logging.info("API conecction created successfully :D")
-
     # Save the response in a txt file to make reading easier
     with open("API_IPResponse.txt", "w") as file:
         try:
@@ -83,16 +66,15 @@ else:
             with open(full_response_file_name, "w") as file:
                 data = json.dumps(response, indent=4)
                 file.write(data)
-            logging.info(
-                'Data requested are saved in API_IPRespobse.txt'
+            print(
+                'Data requested are saved in API_IPResponse.txt'
                 '\n And the full info requested are in %s'
                 % full_response_file_name
             )
             print("Scan completed for the ip: %s" % ip)
-
-        finally:
             print(
                 "The full response and error.log files are created"
                 " with the IP scan requested"
             )
-            logging.info("Execution completed have a nice day :D")
+        finally:
+            print("Execution completed have a nice day :D")
