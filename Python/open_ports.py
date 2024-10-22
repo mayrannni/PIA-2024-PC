@@ -4,6 +4,7 @@ import logging
 import argparse
 import json
 import shodan
+from menu import main_menu
 
 # Generate a config for the file error
 logging.basicConfig(
@@ -78,3 +79,5 @@ else:
             )
         finally:
             print("Execution completed have a nice day :D")
+# Return to the menu
+main_menu()
