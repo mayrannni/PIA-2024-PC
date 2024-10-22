@@ -12,6 +12,7 @@ import json
 import logging
 import re
 import requests
+from menu import main_menu()
 
 
 def validate_ip(ip):
@@ -190,3 +191,5 @@ except Exception as e:
     logging.error(f'An unexpected error occurred: {e}')
 
 logging.info('Scan Completion')
+
+main_menu()
