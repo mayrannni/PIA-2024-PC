@@ -58,6 +58,7 @@ def vulnerability_scanning(param):
         results = subprocess.run(ps_line, capture_output=True, text=True)
         logging.info(command)
         logging.info(ps_line)
+        logging.info('Starting the process')
         if results.returncode == 0:
             if results:
                 logging.info('The nmap scan has completed successfully.')
@@ -110,15 +111,17 @@ logging.info(os.path.join(os.getcwd(), name))
 
 
 try:
+    logging.info('Checking if nmap is installed.')
     result = subprocess.run(['Nmap', '--version'],
                             check=True, capture_output=True, text=True)
-    logging.info(result)
     nmap_exist = 'True'
 except (subprocess.CalledProcessError, FileNotFoundError):
+    logging.info('nmap is not installed, redirecting to download page')
     install = webbrowser.open('https://nmap.org/download')
     logging.info(install)
     nmap_exist = 'False'
 
 
 if nmap_exist == 'True':
+    logging.info('Nmap is installed')
     vulnerability_scanning(param)
