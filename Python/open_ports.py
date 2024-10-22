@@ -1,4 +1,10 @@
-"""Take an ip and scan their open ports using Shodan API."""
+"""Take an ip and scan their open ports using Shodan API.
+
+The script will generate two txt files,
+one file contains the open ports for the given ip and
+the second file will saved the whole response from the API
+if the user wants to chek it out
+"""
 
 import logging
 import argparse
