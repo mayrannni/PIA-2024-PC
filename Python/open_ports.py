@@ -6,6 +6,20 @@ import json
 import shodan
 from menu import main_menu
 
+def validate_ip(ip):
+    """Validate a single IP."""
+    pattern = re.compile(
+        r'^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$'
+        )
+    if pattern.match(ip):
+        return ip
+    else:
+        raise argparse.ArgumentTypeError(
+            'The IP address given is invalid.'
+            )
+    return ip
+
+
 # Generate a config for the file error
 logging.basicConfig(
     filename="APIRequest_Errors.log",
@@ -28,7 +42,7 @@ ips.add_argument(
     "-ip",
     metavar="IP",
     dest="ip",
-    type=str,
+    type=validate_ip,
     help="IP to analyze their ports",
     required=True,
 )
