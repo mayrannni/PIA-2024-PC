@@ -159,15 +159,11 @@ def menu():
 
 
 if __name__ == "__main__":
-    mode = (
-        "How to use: python file_name.py -ip 126.0.0.1 -day 5"
-        "-trust 90 -ip_range 120.0.0.1/24"
-        )
+    mode = "How to use: python Nombre-archivo.py -ip 126.0.0.1 \
+            -day 5-trust 90 -ip_range 120.0.0.1/24"
     parser = argparse.ArgumentParser(
-        description=(
-            'The script reports abusive IP addresses,'
-            'and see the history of malicious activity associated with an IP.'
-            ),
+        description='El script informa de direcciones IP abusivas,\
+            ve el historial de actividad maliciosa asociada a una IP.',
         epilog=mode,
         formatter_class=argparse.RawDescriptionHelpFormatter
         )
@@ -181,10 +177,8 @@ if __name__ == "__main__":
     parser.add_argument('-ip_range', dest='ip_range', type=validate_rank,
                         help='IPS range to check(/24).', required=True)
     parameter = parser.parse_args()
-    api_key = (
-        'bcabc2bfa1f341c5f720d7a3502b7e0b39e42cd127'
-        '719eb63ed5413aaf06b3bc97d71cfb7966dd02'
-        )
+    api_key = 'bcabc2bfa1f341c5f720d7a3502b7e0b39e42cd127\
+        719eb63ed5413aaf06b3bc97d71cfb7966dd02'
 
     date_stamp = datetime.datetime.now()
     info = r'ip_abuse_database_'
