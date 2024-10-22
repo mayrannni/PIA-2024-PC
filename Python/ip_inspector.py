@@ -27,7 +27,6 @@ def validate_ip(ip):
         return ip
     else:
         raise argparse.ArgumentTypeError('The IP address given is invalid.')
-    return ip
 
 
 def validate_rank(ip_range):
