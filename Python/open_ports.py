@@ -2,6 +2,7 @@
 
 import logging
 import argparse
+import re
 import json
 import shodan
 from menu import main_menu
